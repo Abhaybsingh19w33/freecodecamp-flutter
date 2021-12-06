@@ -26,39 +26,52 @@ class HomePage extends StatelessWidget {
       ),
       // body: const Text("Revision course restart"),
       // aligning the container in center
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          // this makes whole container color red
-          // cant use this property here while using boxDecoration
-          // color: Colors.red,
-          // creating a box
-          width: 100,
-          height: 100,
-          // this is like handling things while cant be contained in specified area
-          // clipBehavior: Clip.none,
-          alignment: Alignment.center,
-          // while using boxDecoration we cant use color in sibling
-          // because color property also exist in boxDecoration they will clash
-          decoration: BoxDecoration(
+      body: Container(
+        color: Colors.teal,
+        // height: 500,
+        width: 500,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(8),
+              // this makes whole container color red
+              // cant use this property here while using boxDecoration
               color: Colors.red,
-              // shape: BoxShape.circle,
-              borderRadius: BorderRadius.circular(10),
-              gradient:
-                  const LinearGradient(colors: [Colors.red, Colors.amber]),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 10,
-                )
-              ]),
-          child: const Text(
-            "I am a box",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20,
+              // creating a box
+              width: 100,
+              height: 100,
+              // this is like handling things while cant be contained in specified area
+              // clipBehavior: Clip.none,
+              alignment: Alignment.center,
             ),
-          ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              // this makes whole container color red
+              // cant use this property here while using boxDecoration
+              color: Colors.amber,
+              // creating a box
+              width: 100,
+              height: 100,
+              // this is like handling things while cant be contained in specified area
+              // clipBehavior: Clip.none,
+              alignment: Alignment.center,
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              // this makes whole container color red
+              // cant use this property here while using boxDecoration
+              color: Colors.blue,
+              // creating a box
+              width: 100,
+              height: 100,
+              // this is like handling things while cant be contained in specified area
+              // clipBehavior: Clip.none,
+              alignment: Alignment.center,
+            ),
+          ],
         ),
       ),
     );
@@ -68,107 +81,6 @@ class HomePage extends StatelessWidget {
     // );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import 'package:flutter/material.dart';
 
