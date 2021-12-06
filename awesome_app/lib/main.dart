@@ -7,8 +7,11 @@ void main() {
   // WidgetsApp - low level, it will not provide an in built design for app
   // MaterialApp - universal design
   // CupertinoApp - human interface design, can change design based on operating system
-  runApp(const MaterialApp(
-    home: HomePage(),
+  runApp(MaterialApp(
+    home: const HomePage(),
+    theme: ThemeData(
+      primarySwatch: Colors.amber,
+    ),
   ));
 }
 
@@ -17,10 +20,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-      child: const Text("Revision course restart"),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Awesome App"),
+      ),
+      body: const Text("Revision course restart"),
     );
+    // return Container(
+    //   color: Colors.amber,
+    //   child: const Text("Revision course restart"),
+    // );
   }
 }
 
