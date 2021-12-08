@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart ';
 import 'package:http/http.dart' as http;
 
@@ -7,6 +9,7 @@ import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+  static const String routeName = "/home";
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,7 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   fetchData() async {
     var res = await http.get(Uri.parse(url));
-    print(res.body);
+    // print(res.body);
     data = jsonDecode(res.body);
     setState(() {});
   }
@@ -46,6 +49,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.amber[100],
       appBar: AppBar(
         title: const Text("Awesome App"),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
       ),
       // body: const Text("Revision course restart"),
       // aligning the container in center

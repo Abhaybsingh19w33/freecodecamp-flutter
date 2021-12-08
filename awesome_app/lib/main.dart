@@ -1,4 +1,5 @@
 import 'package:awesome_app/pages/home_page.dart';
+import 'package:awesome_app/pages/login_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,10 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomePage(),
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        home: const LoginPage(),
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+        ),
+        routes: {
+          LoginPage.routeName: (context) => const LoginPage(),
+          HomePage.routeName: (context) => const HomePage(),
+        });
   }
 }
