@@ -1,4 +1,5 @@
 import 'package:awesome_app/pages/home_page.dart';
+import 'package:awesome_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -60,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           ElevatedButton(
                             onPressed: () {
+                              Constants.prefs.setBool("loggedIn", true);
                               // formKey.currentState.validate();
                               // Navigator.push(
                               //     context,
@@ -67,7 +69,9 @@ class _LoginPageState extends State<LoginPage> {
                               //         builder: (context) => const HomePage()) );
 
                               // some simple way to pass the data without passing it through constructur
-                              Navigator.pushNamed(context, HomePage.routeName);
+                              // Navigator.pushNamed
+                              Navigator.pushReplacementNamed(
+                                  context, HomePage.routeName);
                             },
                             child: const Text(
                               "Sign In",
