@@ -15,31 +15,71 @@ void main() {
   ));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+// here state is dynamic it can be stateful or stateless
+class _HomePageState extends State<HomePage> {
+  var myText = "Change my name";
+  final TextEditingController _nameController = TextEditingController();
+
+  // first initstate will be called then screen widgets will be created
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
+
+  // once the screen is destroyed this method will be called
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber[100],
       appBar: AppBar(
         title: const Text("Awesome App"),
       ),
       // body: const Text("Revision course restart"),
       // aligning the container in center
       body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          // this makes whole container color red
-          // cant use this property here while using boxDecoration
-          color: Colors.orange,
-          // creating a box
-          width: 100,
-          height: 100,
-          // this is like handling things while cant be contained in specified area
-          // clipBehavior: Clip.none,
-          alignment: Alignment.center,
+          child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Card(
+              child: Column(
+            children: <Widget>[
+              Image.asset("assets/day.png",
+                  width: 400, height: 300, fit: BoxFit.none),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(myText,
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold)),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  controller: _nameController,
+                  decoration: const InputDecoration(
+                      hintText: "Enter some text",
+                      labelText: "Name",
+                      border: OutlineInputBorder()),
+                ),
+              ),
+            ],
+          )),
         ),
-      ),
+      )),
       drawer: Drawer(
         child: ListView(
           padding: const EdgeInsets.all(0),
@@ -80,27 +120,19 @@ class HomePage extends StatelessWidget {
               subtitle: Text("abhaybsingh19w33@gmail.com"),
               trailing: Icon(Icons.edit),
             ),
-            // ListTile(
-            //   leading: Icon(Icons.person),
-            //   title: Text("Abhay Singh"),
-            //   subtitle: Text("Developer"),
-            //   trailing: Icon(Icons.edit),
-            // )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          return;
+          setState(() {
+            myText = _nameController.text;
+          });
         },
-        child: const Icon(Icons.edit),
+        child: const Icon(Icons.send),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
-    // return Container(
-    //   color: Colors.amber,
-    //   child: const Text("Revision course restart"),
-    // );
   }
 }
 
